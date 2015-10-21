@@ -1,8 +1,8 @@
 FROM tutum/curl:trusty
-MAINTAINER Feng Honglin <hfeng@tutum.co>
+MAINTAINER Feelobot <felix.rodriguez@vungle.com>
 
 # Install InfluxDB
-ENV INFLUXDB_VERSION 0.9.4.2
+ENV INFLUXDB_VERSION nightly
 RUN curl -s -o /tmp/influxdb_latest_amd64.deb https://s3.amazonaws.com/influxdb/influxdb_${INFLUXDB_VERSION}_amd64.deb && \
   dpkg -i /tmp/influxdb_latest_amd64.deb && \
   rm /tmp/influxdb_latest_amd64.deb && \
@@ -24,10 +24,10 @@ EXPOSE 8083
 EXPOSE 8086
 
 # Raft port (for clustering, don't expose publicly!)
-#EXPOSE 8090
+EXPOSE 8090
 
 # Protobuf port (for clustering, don't expose publicly!)
-#EXPOSE 8099
+EXPOSE 8099
 
 VOLUME ["/data"]
 
