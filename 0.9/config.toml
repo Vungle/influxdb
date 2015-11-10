@@ -40,7 +40,7 @@ reporting-disabled = false
   # The following WAL settings are for the b1 storage engine used in 0.9.2. They won't
   # apply to any new shards created after upgrading to a version > 0.9.3.
   max-wal-size = 104857600 # Maximum size the WAL can reach before a flush. Defaults to 100MB.
-  wal-flush-interval = "10m0s" # Maximum time data can sit in WAL before a flush.
+  wal-flush-interval = "00m30s" # Maximum time data can sit in WAL before a flush.
   wal-partition-flush-delay = "2s" # The delay time between each WAL partition being flushed.
 
   # These are the WAL settings for the storage engine >= 0.9.3
