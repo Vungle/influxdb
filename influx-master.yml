@@ -1,0 +1,35 @@
+---
+  kind: "ReplicationController"
+  apiVersion: "v1"
+  metadata: 
+    name: "influx-master"
+    creationTimestamp: null
+    labels: 
+      service: "influx-master"
+  spec: 
+    replicas: 1
+    selector: 
+      service: "influx-master"
+    template: 
+      metadata: 
+        creationTimestamp: null
+        labels: 
+          service: "influx-master"
+      spec: 
+        containers: 
+          - name: "influx-master"
+            image: "vungle/influxdb:nightly_with_30s_wal"
+            ports: 
+              - containerPort: 8083
+              - containerPort: 8086
+              - containerPort: 8088
+            env:
+              - name: INFLUXDB_INIT_PWD
+                value: X2YvJtSq1Lqu
+              - name: PRE_CREATE_DB
+                value: stats
+            imagePullPolicy: "Always"
+        serviceAccountName: ""
+  status: 
+    replicas: 0
+
