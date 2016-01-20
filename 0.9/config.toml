@@ -85,9 +85,10 @@ reporting-disabled = false
 ###
 ### Controls the enforcement of retention policies for evicting old data.
 ###
-[retention]
-  enabled = true
-  check-interval = "10m0s"
+#[retention]
+  #enabled = true
+  #check-interval = "10m0s"
+  #replication-factor = 1
 
 ###
 ### [admin]
@@ -111,6 +112,7 @@ reporting-disabled = false
   enabled = true
   bind-address = ":8086"
   auth-enabled = false 
+  log-enabled = true
   write-tracing = true
   pprof-enabled = false
   https-enabled = false
@@ -235,3 +237,9 @@ reporting-disabled = false
   max-age = "168h"
   retry-rate-limit = 0
   retry-interval = "1s"
+
+[[graphite]]
+  enabled = true
+  bind-address = ":2003"
+  protocol = "udp"
+  # consistency-level = "one"

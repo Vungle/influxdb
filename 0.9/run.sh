@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -m
-CONFIG_FILE="/config/config.toml"
+CONFIG_FILE="/etc/influxdb/influxdb.conf"
 INFLUX_HOST="localhost"
 INFLUX_API_PORT="8086"
 API_URL="http://${INFLUX_HOST}:${INFLUX_API_PORT}"
@@ -92,9 +92,9 @@ echo "influxdb configuration: "
 cat ${CONFIG_FILE}
 echo "=> Starting InfluxDB ..."
 if [ -n "${JOIN}" ]; then
-  exec /opt/influxdb/influxd -config=${CONFIG_FILE} -join ${JOIN} &
+  exec influxd -config=${CONFIG_FILE} -join ${JOIN} &
 else
-  exec /opt/influxdb/influxd -config=${CONFIG_FILE} &
+  exec influxd -config=${CONFIG_FILE} &
 fi
 
 # Pre create database on the initiation of the container
