@@ -85,10 +85,10 @@ reporting-disabled = false
 ###
 ### Controls the enforcement of retention policies for evicting old data.
 ###
-[retention]
-  enabled = true
-  check-interval = "10m0s"
-  replication-factor = 1
+#[retention]
+  #enabled = true
+  #check-interval = "10m0s"
+  #replication-factor = 1
 
 ###
 ### [admin]
