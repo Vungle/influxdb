@@ -10,6 +10,7 @@ RUN wget https://influxdb.s3.amazonaws.com/influxdb_0.10.0-0.beta1_amd64.deb && 
 ADD types.db /usr/share/collectd/types.db
 ADD config.toml /config/config.toml
 ADD run.sh /run.sh
+ADD createdb.sh /createdb.sh
 RUN chmod +x /*.sh
 
 ENV PRE_CREATE_DB **None**
