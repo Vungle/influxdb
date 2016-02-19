@@ -2,10 +2,10 @@ FROM debian:jessie
 MAINTAINER Feelobot <felix.rodriguez@vungle.com>
 
 # Install InfluxDB
-ENV INFLUXDB_VERSION 0.10.0-0.beta1
+ENV INFLUXDB_VERSION 0.10.1-1
 RUN apt-get -qq update && apt-get -qq -y install wget
-RUN wget https://s3.amazonaws.com/influxdb/influxdb_0.10.0-0.rc1_amd64.deb && \
-  dpkg -i influxdb_0.10.0-0.rc1_amd64.deb
+RUN wget https://s3.amazonaws.com/influxdb/influxdb_0.10.1-1_amd64.deb && \
+  dpkg -i influxdb_0.10.1-1_amd64.deb
 
 ADD types.db /usr/share/collectd/types.db
 ADD config.toml /config/config.toml
