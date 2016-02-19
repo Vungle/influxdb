@@ -34,14 +34,14 @@ reporting-disabled = false
 ### defaults should work for most systems.
 ###
 
-[[udp]]
+ # High-traffic UDP
   enabled = true
-  bind-address = ":8089" # the bind address
+  bind-address = ":80891" # the bind address
   database = "stats_udp" # Name of the database that will be written to
-  batch-size = 1000 # will flush if this many points get buffered
+  batch-size = 5000 # will flush if this many points get buffered
   batch-timeout = "1s" # will flush at least this often even if the batch-size is not reached
-  batch-pending = 5 # number of batches that may be pending in memory
-  read-buffer = 8388608 # UDP Read buffer size, 0 means OS default. UDP listener will fail if set above OS max.
+  batch-pending = 100 # number of batches that may be pending in memory
+  read-buffer = 8388608 # (8*1024*1024) UDP read buffer size
 
 [data]
   dir = "/data/db"
